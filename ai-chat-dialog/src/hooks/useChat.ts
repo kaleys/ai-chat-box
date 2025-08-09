@@ -9,11 +9,6 @@ interface LocalMessage {
   timestamp: Date
 }
 
-interface ApiResponse {
-  message?: string
-  content?: string
-  error?: string
-}
 
 export const useChat = () => {
   const [messages, setMessages] = useState<LocalMessage[]>([
