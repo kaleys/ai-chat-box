@@ -20850,8 +20850,10 @@ var yoga = createYoga({
     env
   }), "context"),
   cors: {
-    origin: "*",
-    credentials: false
+    origin: true,
+    credentials: false,
+    allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "OPTIONS"]
   },
   graphiql: {
     title: "DeepSeek GraphQL API",

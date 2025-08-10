@@ -70,8 +70,10 @@ const yoga = createYoga({
 		env
 	}),
 	cors: {
-		origin: '*',
+		origin: true,
 		credentials: false,
+		allowedHeaders: ['Content-Type', 'Authorization'],
+		methods: ['GET', 'POST', 'OPTIONS'],
 	},
 	graphiql: {
 		title: 'DeepSeek GraphQL API',
