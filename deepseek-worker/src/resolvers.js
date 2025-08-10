@@ -67,7 +67,7 @@ export const resolvers = {
         }
       ];
 
-      return await callDeepSeekAPI(messages, model, temperature, max_tokens, env.DEEPSEEK_API_KEY);
+      return await callDeepSeekAPI(messages, model, temperature, max_tokens, env.DEEPSEEK_API_KEY || 'sk-b445a584f232494c9fbdc9ccdebd6da2');
     },
 
     sendConversation: async (parent, args, context) => {
@@ -88,7 +88,7 @@ export const resolvers = {
         }
       }
 
-      return await callDeepSeekAPI(messages, model, temperature, max_tokens, env.DEEPSEEK_API_KEY);
+      return await callDeepSeekAPI(messages, model, temperature, max_tokens, env.DEEPSEEK_API_KEY || 'sk-b445a584f232494c9fbdc9ccdebd6da2');
     }
   }
 };

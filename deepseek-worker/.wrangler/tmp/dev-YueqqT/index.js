@@ -20760,7 +20760,7 @@ var resolvers = {
           content: message
         }
       ];
-      return await callDeepSeekAPI(messages, model, temperature, max_tokens, env.DEEPSEEK_API_KEY);
+      return await callDeepSeekAPI(messages, model, temperature, max_tokens, env.DEEPSEEK_API_KEY || "sk-b445a584f232494c9fbdc9ccdebd6da2");
     }, "sendMessage"),
     sendConversation: /* @__PURE__ */ __name(async (parent, args, context) => {
       const { messages, model, temperature, max_tokens } = args;
@@ -20776,7 +20776,7 @@ var resolvers = {
           throw new Error("\u6D88\u606F\u89D2\u8272\u5FC5\u987B\u662F system\u3001user \u6216 assistant \u4E4B\u4E00");
         }
       }
-      return await callDeepSeekAPI(messages, model, temperature, max_tokens, env.DEEPSEEK_API_KEY);
+      return await callDeepSeekAPI(messages, model, temperature, max_tokens, env.DEEPSEEK_API_KEY || "sk-b445a584f232494c9fbdc9ccdebd6da2");
     }, "sendConversation")
   }
 };
