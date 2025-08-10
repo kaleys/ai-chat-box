@@ -70,10 +70,8 @@ const yoga = createYoga({
 		env
 	}),
 	cors: {
-		origin: true,
+		origin: '*',
 		credentials: false,
-		allowedHeaders: ['Content-Type', 'Authorization'],
-		methods: ['GET', 'POST', 'OPTIONS'],
 	},
 	graphiql: {
 		title: 'DeepSeek GraphQL API',
@@ -86,13 +84,6 @@ export default {
 		const url = new URL(request.url);
 		const origin = request.headers.get('Origin');
 		
-		// Handle CORS preflight for all endpoints
-		if (request.method === 'OPTIONS') {
-			return new Response(null, {
-				status: 200,
-				headers: corsHeaders(origin),
-			});
-		}
 
 		// GraphQL 端点
 		if (url.pathname === '/graphql') {

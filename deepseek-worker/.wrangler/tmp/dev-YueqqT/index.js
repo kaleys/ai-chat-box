@@ -20850,10 +20850,8 @@ var yoga = createYoga({
     env
   }), "context"),
   cors: {
-    origin: true,
-    credentials: false,
-    allowedHeaders: ["Content-Type", "Authorization"],
-    methods: ["GET", "POST", "OPTIONS"]
+    origin: "*",
+    credentials: false
   },
   graphiql: {
     title: "DeepSeek GraphQL API",
@@ -20864,12 +20862,6 @@ var src_default = {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     const origin = request.headers.get("Origin");
-    if (request.method === "OPTIONS") {
-      return new Response(null, {
-        status: 200,
-        headers: corsHeaders(origin)
-      });
-    }
     if (url.pathname === "/graphql") {
       const response = await yoga.fetch(request, {
         ...ctx,
